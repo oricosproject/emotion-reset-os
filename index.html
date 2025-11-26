@@ -1,52 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ONE META 감정 리셋 OS</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
 <section class="screen" id="boot">
-  <h1>ONE META 감정 리셋 OS</h1>
-  <h2>5분 내면 재부팅 시스템</h2>
+  <h1 style="font-size:32px;">ONE META 감정 리셋 OS</h1>
+  <h2 style="margin-top:10px;">5분 내면 재부팅 시스템</h2>
+
+  <hr style="border:0; height:2px; background:#C9A86A; width:60%; margin:30px auto;">
+
   <button onclick="scrollToNext('scan')">감정 리셋 시작하기</button>
 </section>
-
-<section class="screen" id="scan">
-  <h2>지금 어떤 감정이 가장 강한가요?</h2>
-  <div class="btn-grid">
-    <button onclick="scrollToNext('drain')">혼란</button>
-    <button onclick="scrollToNext('drain')">압박</button>
-    <button onclick="scrollToNext('drain')">억눌림</button>
-    <button onclick="scrollToNext('drain')">피로</button>
-    <button onclick="scrollToNext('drain')">무기력</button>
-    <button onclick="scrollToNext('drain')">불안</button>
-  </div>
-</section>
-
-<section class="screen" id="drain">
-  <h2>감정 해소 중입니다</h2>
-  <p>따뜻하게 숨을 내쉬세요.</p>
-  <div id="count">60</div>
-</section>
-
-<section class="screen" id="reboot">
-  <h2>감정 재부팅 모드 선택</h2>
-  <div class="btn-grid">
-    <button onclick="scrollToNext('result')">안정 모드</button>
-    <button onclick="scrollToNext('result')">평온 모드</button>
-    <button onclick="scrollToNext('result')">집중 모드</button>
-  </div>
-</section>
-
-<section class="screen" id="result">
-  <h2>✔ 감정이 재부팅되었습니다.</h2>
-  <p>당신의 내면 구조가 안정 모드로 정렬되었습니다.</p>
-</section>
-
-<script src="script.js"></script>
-</body>
-</html>
