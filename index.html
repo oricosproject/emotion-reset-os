@@ -4,104 +4,71 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ONE META 감정 리셋 OS</title>
-
-<!-- 스타일 외부 파일 -->
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 <div class="app" id="app">
 
-  <!-- BOOT -->
-  <section class="screen" id="boot">
-    <div class="header">
-      <div class="pill"><span class="dot"></span> ONE META OS</div>
-    </div>
+<section class="screen" id="boot">
+<div class="header"><div class="pill"><span class="dot"></span> ONE META OS</div></div>
+<div class="card">
+<div class="card-title">ONE META 감정 리셋 OS</div>
+<div class="card-sub">5분 내면 재부팅 시스템</div>
+<button class="btn-primary" onclick="go('scan')">시작하기</button>
+</div>
+</section>
 
-    <div class="card">
-      <div class="card-title">ONE META 감정 리셋 OS</div>
-      <div class="card-sub">5분 내면 재부팅 시스템</div>
-      <button class="btn-primary" onclick="go('scan')">시작하기</button>
-    </div>
-  </section>
+<section class="screen" id="scan">
+<div class="header"><div class="pill"><span class="dot"></span> STEP 1</div></div>
+<div class="card">
+<div class="card-title">현재 감정 선택</div>
+<div class="card-sub">최대 2개 선택 가능</div>
+<div class="chips">
+<div class="chip" onclick="selectEmotion(this)">혼란</div>
+<div class="chip" onclick="selectEmotion(this)">압박</div>
+<div class="chip" onclick="selectEmotion(this)">억눌림</div>
+<div class="chip" onclick="selectEmotion(this)">피로</div>
+<div class="chip" onclick="selectEmotion(this)">무기력</div>
+<div class="chip" onclick="selectEmotion(this)">불안</div>
+</div>
+<button class="btn-primary" onclick="go('drain')">계속하기</button>
+</div>
+</section>
 
-  <!-- SCAN -->
-  <section class="screen" id="scan">
-    <div class="header">
-      <div class="pill"><span class="dot"></span> STEP 1</div>
-    </div>
+<section class="screen" id="drain">
+<div class="header"><div class="pill"><span class="dot"></span> STEP 2</div></div>
+<div class="card">
+<div class="card-title">감정 해소 중…</div>
+<div class="card-sub">천천히 호흡만 따라가세요</div>
+<div class="wave"></div>
+<div id="count">60</div>
+<button onclick="go('reboot')">건너뛰기</button>
+</div>
+</section>
 
-    <div class="card">
-      <div class="card-title">현재 감정 선택</div>
-      <div class="card-sub">최대 2개 선택 가능</div>
+<section class="screen" id="reboot">
+<div class="header"><div class="pill"><span class="dot"></span> STEP 3</div></div>
+<div class="card">
+<div class="card-title">감정 재부팅 모드</div>
+<div class="chips">
+<div class="chip" onclick="selectMode(this,'calm')">안정</div>
+<div class="chip" onclick="selectMode(this,'peace')">평온</div>
+<div class="chip" onclick="selectMode(this,'focus')">집중</div>
+</div>
+<button class="btn-primary" onclick="go('result')">재부팅하기</button>
+</div>
+</section>
 
-      <div class="chips">
-        <div class="chip" onclick="selectEmotion(this)">혼란</div>
-        <div class="chip" onclick="selectEmotion(this)">압박</div>
-        <div class="chip" onclick="selectEmotion(this)">억눌림</div>
-        <div class="chip" onclick="selectEmotion(this)">피로</div>
-        <div class="chip" onclick="selectEmotion(this)">무기력</div>
-        <div class="chip" onclick="selectEmotion(this)">불안</div>
-      </div>
-
-      <button class="btn-primary" onclick="go('drain')">계속하기</button>
-    </div>
-  </section>
-
-  <!-- DRAIN -->
-  <section class="screen" id="drain">
-    <div class="header">
-      <div class="pill"><span class="dot"></span> STEP 2</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">감정 해소 중…</div>
-      <div class="card-sub">천천히 호흡만 따라가세요</div>
-
-      <div class="wave"></div>
-      <div id="count">60</div>
-      <button onclick="go('reboot')">건너뛰기</button>
-    </div>
-  </section>
-
-  <!-- REBOOT -->
-  <section class="screen" id="reboot">
-    <div class="header">
-      <div class="pill"><span class="dot"></span> STEP 3</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">감정 재부팅 모드</div>
-
-      <div class="chips">
-        <div class="chip" onclick="selectMode(this,'calm')">안정</div>
-        <div class="chip" onclick="selectMode(this,'peace')">평온</div>
-        <div class="chip" onclick="selectMode(this,'focus')">집중</div>
-      </div>
-
-      <button class="btn-primary" onclick="go('result')">재부팅하기</button>
-    </div>
-  </section>
-
-  <!-- RESULT -->
-  <section class="screen" id="result">
-    <div class="header">
-      <div class="pill"><span class="dot"></span> STEP 4</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">✔ 감정 재부팅 완료</div>
-      <div class="result" id="modeResult">안정 모드로 정렬되었습니다.</div>
-
-      <button class="btn-primary" onclick="go('boot')">다시 실행하기</button>
-    </div>
-  </section>
+<section class="screen" id="result">
+<div class="header"><div class="pill"><span class="dot"></span> STEP 4</div></div>
+<div class="card">
+<div class="card-title">✔ 재부팅 완료</div>
+<div class="result" id="modeResult">안정 모드로 정렬되었습니다.</div>
+<button class="btn-primary" onclick="go('boot')">다시 실행하기</button>
+</div>
+</section>
 
 </div>
-
-<!-- 외부 스크립트 -->
 <script src="script.js"></script>
-
 </body>
 </html>
