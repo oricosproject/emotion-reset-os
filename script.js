@@ -38,3 +38,4 @@ const counter = setInterval(()=>{
     scrollToNext('reboot');
   }
 },1000);
+
