@@ -1,8 +1,9 @@
-
 function scrollToNext(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  const el = document.getElementById(id);
+  el.scrollIntoView({behavior:'smooth'});
 }
 
+// upgrade: smoother drain countdown
 let sec = 60;
 const counter = setInterval(()=>{
   let el = document.getElementById("count");
