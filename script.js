@@ -1,41 +1,27 @@
-function scrollToNext(id){
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.scrollIntoView({behavior:'smooth'});
-}
-
-// 감정 선택 칩
+// 감정 선택 (최대 2개)
 function selectEmotion(elem) {
-  const group = elem.parentElement;
-  [...group.children].forEach(chip => chip.classList.remove('active'));
-  elem.classList.add('active');
-}
+  // 이미 선택된 칩인지 확인
+  const already = elem.classList.contains('active');
 
-// 모드 선택 칩 + 결과 텍스트 반영
-let selectedMode = '안정';
+  // 감정 칩 전체
+  const chips = [...elem.parentElement.children];
 
-function selectMode(elem, modeLabel) {
-  selectedMode = modeLabel || '안정';
-  const group = elem.parentElement;
-  [...group.children].forEach(chip => chip.classList.remove('active'));
-  elem.classList.add('active');
+  // 현재 선택된 칩 목록
+  const selected = chips.filter(ch => ch.classList.contains('active'));
 
-  const result = document.getElementById('modeResult');
-  if (result) {
-    result.textContent = `지금 이 순간, 당신의 내면은 “${selectedMode} 모드”로 정렬되었습니다.`;
+  // 이미 active → 클릭하면 해제
+  if (already) {
+    elem.classList.remove('active');
+    return;
+  }
+
+  // active가 2개 미만이면 새로 추가
+  if (selected.length < 2) {
+    elem.classList.add('active');
+  } 
+  else {
+    // 3개째를 누르면 가장 먼저 선택한 칩 해제 후 새 칩 활성화
+    selected[0].classList.remove('active');
+    elem.classList.add('active');
   }
 }
-
-// 감정 해소 카운트다운
-let sec = 60;
-const counter = setInterval(()=>{
-  const el = document.getElementById("count");
-  if(!el) { clearInterval(counter); return; }
-  el.innerText = sec;
-  sec--;
-  if(sec < 0){
-    clearInterval(counter);
-    scrollToNext('reboot');
-  }
-},1000);
-
