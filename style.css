@@ -238,3 +238,62 @@ button:hover {
   50% {transform: scale(1.06);}
   100% {transform: scale(1);}
 }
+/* ===== 감정 기반 컬러 테라피 테마 ===== */
+
+/* 안정 모드: 아이보리 톤 */
+.app-shell.theme-calm .card {
+  background: #FFF9F0;
+  border-color: rgba(201, 168, 106, 0.4);
+}
+
+.app-shell.theme-calm .card-title {
+  color: #6F5A3A;
+}
+
+.app-shell.theme-calm .chip.active {
+  background: #F3E3CC;
+  border-color: #C9A86A;
+}
+
+/* 평온 모드: 파스텔 그린 톤 */
+.app-shell.theme-peace .card {
+  background: #F1F8F2;
+  border-color: #C3DDC8;
+}
+
+.app-shell.theme-peace .card-title {
+  color: #4E7F5A;
+}
+
+.app-shell.theme-peace .chip.active {
+  background: #D7EDDB;
+  border-color: #7CB58A;
+}
+
+/* 집중 모드: 에너지 블루 톤 */
+.app-shell.theme-focus .card {
+  background: #EDF3FF;
+  border-color: #B5C8F5;
+}
+
+.app-shell.theme-focus .card-title {
+  color: #3654A5;
+}
+
+.app-shell.theme-focus .chip.active {
+  background: #D8E3FF;
+  border-color: #6283E0;
+}
+
+/* 버튼도 살짝 테마 반응 */
+.app-shell.theme-calm .btn-primary {
+  background: linear-gradient(135deg, #C9A86A, #E3C89A);
+}
+
+.app-shell.theme-peace .btn-primary {
+  background: linear-gradient(135deg, #7CB58A, #A8D9B3);
+}
+
+.app-shell.theme-focus .btn-primary {
+  background: linear-gradient(135deg, #6283E0, #98B0FF);
+}
