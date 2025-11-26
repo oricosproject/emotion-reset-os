@@ -25,3 +25,14 @@ function selectEmotion(elem) {
     elem.classList.add('active');
   }
 }
+function selectMode(elem, modeLabel) {
+  selectedMode = modeLabel || '안정';
+  const group = elem.parentElement;
+  [...group.children].forEach(chip => chip.classList.remove('active'));
+  elem.classList.add('active');
+
+  const result = document.getElementById('modeResult');
+  if (result) {
+    result.textContent = `지금 이 순간, 당신의 내면은 “${selectedMode} 모드”로 정렬되었습니다.`;
+  }
+}
